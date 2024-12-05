@@ -47,25 +47,33 @@ public class BankAccount {
     private void display (String message) {
         System.out.println(message);
     }
+
+    private String getFormattedValue (double value) {   // EP DAU EP MO, AI NO EP KIEU
+        return String.format("%.0f", value);
+    }
+
+    final double minLimit= 5000;
     public void deposit (double amount) {
-        final double minDeposit= 5.000;
-        if(amount > minDeposit) {
+        if(amount > minLimit) {
             this.balance += amount;
             display("Giao dịch gửi tiền của quý khách đã thành công. Số tiền:" + amount +
                     " VND. Số dư tài khoản: " + this.balance);
         } else {
-            display("Số tiền gửi phải lớn hơn " + minDeposit + " VND. Giao dịch không thành công.");
+            display("Số tiền gửi phải lớn hơn " + minLimit + " VND. Giao dịch không thành công.");
         }
     }
 
     public void withdraw (double amount) {
-        final double minWithdraw= 5.000;
-        if (amount > minWithdraw) {
-            this.balance -= amount;
-            display("Giao dịch rút tiền của quý khách đã thành công. Số tiền:" + amount +
-                    " VND. Số dư tài khoản: " + this.balance);
+        if (amount > minLimit) {
+            if (amount <= this.balance) {
+                this.balance -= amount;
+                display("Giao dịch rút tiền của quý khách đã thành công. Số tiền:" + amount +
+                        " VND. Số dư tài khoản: " + this.balance);
+            } else {
+                display("So du khong du de thuc hien giao dich.");
+            }
         } else {
-            display("Số tiền rút phải lớn hơn " + minWithdraw + " VND. Giao dịch không thành công.");
+            display("Số tiền rút phải lớn hơn " + minLimit + " VND. Giao dịch không thành công.");
         }
     }
 
@@ -76,8 +84,9 @@ public class BankAccount {
     public void getAccountInfo () {
         display("So tai khoan: " + this.accountNumber + "\n"
                 + "Chu tai khoan: " + this.accountHolderName + "\n"
-                + "So du kha dung: " + this.balance + "\n"
-                + "Loai tai khoan: " + this.accountType
+                + "So du kha dung: " + getFormattedValue(this.balance) + "\n"
+                + "Loai tai khoan: " + this.accountType + "\n"
+                + "-----------------"
         );
     }
 }

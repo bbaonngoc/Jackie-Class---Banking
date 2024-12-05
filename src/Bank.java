@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 import java.util.List;
 public class Bank {
-    private List<BankAccount> accounts; //truong cua Bank - chua tat ca tai khoan
+    private List<BankAccount> accounts = new ArrayList<>(); //truong cua Bank - chua tat ca tai khoan
 
     public List<BankAccount> getAccounts() {
         return accounts;
@@ -20,7 +21,7 @@ public class Bank {
     }
 
     public void addAccount (BankAccount newAccount) {
-        this.accounts.add(newAccount);
+        accounts.add(newAccount);
     }
 
     public BankAccount findAccount (String accountToFind) {
