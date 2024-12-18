@@ -1,0 +1,44 @@
+### ***Chuyện của anh Dev và con mèo File***
+
+*Ngày xưa, có một anh lập trình viên tên Dev, nổi tiếng trong công ty bởi sự thông minh nhưng... hơi lười. Một hôm, sếp gọi anh lên và giao nhiệm vụ: **"Tối ưu hóa cách lưu trữ và xử lý dữ liệu cho hệ thống của công ty!"**.*
+
+*Dev nhíu mày:*
+
+- *"Dữ liệu thì cứ ném hết vào database thôi, chứ còn gì nữa?"*
+
+*Sếp cười:*
+
+- *"Vậy nếu người dùng tải lên file hình ảnh, báo cáo Excel, hay nhật ký lỗi của hệ thống, thì database xử lý giùm luôn hả? Liệu có chịu nổi không?"*
+
+*Không để sếp nói thêm, Dev chạy về bàn làm việc, đau đầu suy nghĩ. Đúng lúc ấy, con mèo cưng của anh – tên là **File** – nhảy lên bàn, ngạo nghễ ngồi trên bàn phím.*
+
+*Mèo File nói (bằng tiếng mèo, nhưng Dev hiểu):*
+
+- *"Tại sao con người các anh cứ phải nghĩ mọi thứ phải dồn hết vào một chỗ? Anh có tôi đây mà, sao không dùng tôi?"*
+
+*Dev gãi đầu:*
+
+- *"Dùng file để làm gì? Thời đại này ai còn dùng file nữa. Tất cả phải là Cloud, AI, Big Data!"*
+
+*File bĩu môi:*
+
+- *"Nghe nè, lười như anh mà không dùng tôi là sai lắm đấy. Để tôi chỉ cho anh vài việc tôi có thể giúp anh nhé:*
+    - *Lưu log hệ thống: Mỗi lần hệ thống gặp lỗi, anh ghi log vào file để mà dễ truy cứu, không cần database gánh thêm việc!*
+    - *Quản lý báo cáo: Người ta tải file Excel lên, anh phân tích, rồi lưu lại. Ai cần tải về thì ném file cho họ, đỡ xử lý đi xử lý lại.*
+    - *Cấu hình: Mấy cái cấu hình ứng dụng anh lưu trong file YAML hay JSON, chỉnh sửa nhanh, không cần khởi động lại!"*
+
+*Dev vỗ tay cái đét:*
+
+- *"Nghe có lý đấy! Nhưng mà..."*
+
+*File cắt lời:*
+
+- *"Nhưng nhị cái gì! Có tôi, anh làm được hàng tá việc mà database làm không tốt. Tôi nhẹ, tiện, và anh chỉ cần xử lý đúng cách. Dùng `FileInputStream`, `BufferedReader`, hay `NIO` là xong!"*
+
+*Dev thở dài, quay sang sếp:*
+
+- *"Sếp ơi, cho em nói thật, từ giờ em sẽ chia sẻ bớt công việc cho con mèo File này ạ. Nó không chỉ thông minh mà còn chịu khó hơn em nhiều!"*
+
+---
+
+*Vậy là từ đó, anh Dev nhận ra rằng file không chỉ là một khái niệm cũ kỹ, mà là người bạn đồng hành quan trọng trong những nhiệm vụ phụ trợ mà database không thể gánh vác. Con mèo File vẫn tiếp tục giúp anh xử lý dữ liệu mỗi ngày, và hệ thống của công ty thì chạy trơn tru hơn bao giờ hết.*
