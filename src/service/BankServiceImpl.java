@@ -16,7 +16,6 @@ public class BankServiceImpl implements BankService {
     private final FileUtil<BankAccount> fileBankAccount = new FileUtil<>("banks_accounts.txt");
 
 
-
     // Declare
     private final double MIN_LIMIT = 5000;
 
@@ -42,6 +41,39 @@ public class BankServiceImpl implements BankService {
         for (BankAccount bankAccount : temp) {
             System.out.println(bankAccount);
         }
+    }
+
+    @Override
+    public boolean check (String accountToCheck) {
+        List<BankAccount> temp = fileBankAccount.readObjectsFromFile();
+        for (BankAccount bankAccount : temp) {
+            if (accountToCheck.equals(bankAccount.getAccountNumber())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public BankAccount getAccountInf (String accountToCheck) {
+        if (!check(accountToCheck)) {
+            System.out.println("Account not found!");
+            return null;
+        }
+        List<BankAccount> temp = fileBankAccount.readObjectsFromFile();
+        for (BankAccount bankAccount : temp) {
+            if (accountToCheck.equals(bankAccount.getAccountNumber())) {
+                return bankAccount;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void updateAccountInf(BankAccount bankAccount, BankAccount updateAccount) {
+        updateAccount.setBalance(bankAccount.getBalance());
+        // giu nguyen so du
+        fileBankAccount.updateObjectInFile(bankAccount, updateAccount);
     }
 
     public BankAccount findAccount(String accountToFind) {
@@ -78,7 +110,6 @@ public class BankServiceImpl implements BankService {
         );
     }
 
-    @Override
     public void deposit(BankAccount bankAccount, double amount) {
         // danh sach cac tai khoan o tempstore
         List<BankAccount> bankAccounts = banks.getAccounts();

@@ -8,5 +8,9 @@ public interface BankService {
 
     void displayAccounts();
 
-    void deposit(BankAccount bankAccount, double amount);
+    boolean check(String accountToCheck);
+    
+    BankAccount getAccountInf (String accountToCheck);
+
+    void updateAccountInf(BankAccount bankAccount, BankAccount updateAccount);
 }

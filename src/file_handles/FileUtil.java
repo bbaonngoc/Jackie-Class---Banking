@@ -44,11 +44,33 @@ public class FileUtil<T> {
     }
 
 
-
     // Sửa danh sách các đối tượng từ file - update in file
-    public void updateObjectInFile(T object) {
-        // xu li sua doi thong tin tu file
+    public void updateObjectInFile(T oldObject, T newObj) {
+        // Bước 1: Đọc danh sách đối tượng từ file
+        List<T> objects = readObjectsFromFile();
 
+        // Bước 2: Tìm và thay thế đối tượng cũ
+        boolean isUpdated = false;
+        for (int i = 0; i < objects.size(); i++) {
+            if (objects.get(i).equals(oldObject)) { // So sánh đối tượng
+                objects.set(i, newObj); // Cập nhật đối tượng mới
+                isUpdated = true;
+                break;
+            }
+        }
+
+        // Bước 3: Ghi danh sách đã sửa vào file
+        if (isUpdated) {
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
+                oos.writeObject(objects);
+                System.out.println("Đã cập nhật đối tượng thành công!");
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Cập nhật thất bại.");
+            }
+        } else {
+            System.out.println("Không tìm thấy đối tượng cần cập nhật.");
+        }
     }
 
 

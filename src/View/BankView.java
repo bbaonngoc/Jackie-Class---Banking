@@ -28,7 +28,7 @@ public class BankView {
                     menuBank();
                     break;
                 case 2:
-                    menuUser();
+                    displayUserMenu();
                     break;
                 case 0:
                     check = false;
@@ -57,8 +57,19 @@ public class BankView {
                     bankController.addAccount(newAccount);
                     break;
                 case 2:
-//                    System.out.println("Update account selected");
+                    // nhap stk can thay doi
+                    BankAccount bankAccount = null;
 
+                    while (bankAccount == null) {
+                        System.out.println("Nhap so tai khoan can update: ");
+                        Scanner scanner = new Scanner(System.in);
+                        String accountToFind = scanner.nextLine();
+                        bankAccount = bankController.getAccountInf(accountToFind);
+                    }
+                    System.out.println(bankAccount);
+                    // goi ham update
+                    BankAccount updateAccount = updateAccount();
+                    bankController.updateAccountInf(bankAccount, updateAccount);
 
                     break;
                 case 3:
@@ -89,7 +100,7 @@ public class BankView {
         System.out.print("Choose an option: ");
     }
 
-    private void menuUser() {
+    private void displayUserMenu() {
         System.out.println("\n========== MENU USER ==========");
         System.out.println("1. Add User");
         System.out.println("2. Update User");
@@ -129,19 +140,16 @@ public class BankView {
     }
 
     private BankAccount updateAccount () {
-        BankAccount bankAccount = new BankAccount();
+        BankAccount newAccount = new BankAccount();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhap thong tin nguoi dung");
         System.out.print("So tai khoan: ");
-        bankAccount.setAccountNumber(scanner.nextLine());
+        newAccount.setAccountNumber(scanner.nextLine());
         System.out.print("Ten chu tai khoan: ");
-        bankAccount.setAccountHolderName(scanner.nextLine());
-        return bankAccount;
+        newAccount.setAccountHolderName(scanner.nextLine());
+        System.out.print("Loai tai khoan: ");
+        newAccount.setAccountType(scanner.nextLine());
+        return newAccount;
     }
 
-    // View -> update btn -> input stk can sua -> controller goi findservice -> service tim trong file exist acc -> true/false
-
-    // -> false: nhap lai stk
-    // -> true: nhap thong tin can sua -> updatedAccount -> controller goi update -> service tien hanh update trong file
-    // success or not
 }
